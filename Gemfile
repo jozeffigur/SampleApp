@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 
+require 'rbconfig'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 gem 'pg'
 
-group :development, :test do
+group :development do
 	#gem 'sqlite3'
-	gem 'rspec-rails' #access to RSpecspecific generators
+	gem 'guard'
+	gem 'guard-rspec' #gem to automate the running of the tests
 end
 
 # Gems used only for assets and not required
@@ -31,7 +34,18 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :test do
 	gem 'capybara'
+
+	# System-dependent gems
+	gem 'rb-fchange'
+	gem 'rb-notifu'
+	# gem 'win32console' Ruby 2.0 on windows supports ANSI escape sequences, win32console gem is unnecessary
+end
+
+group :development, :test do
+	gem 'rspec-rails' #access to RSpecspecific generators
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+gem 'wdm', '>=0.1.0' if RbConfig::CONFIG['target_os'] = ~/mswin|mingw|cygwin/i
