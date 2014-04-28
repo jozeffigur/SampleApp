@@ -9,7 +9,7 @@ gem 'pg'
 group :development do
 	#gem 'sqlite3'
 	gem 'guard'
-	gem 'guard-rspec' #gem to automate the running of the tests
+	gem 'guard-rspec' # gem automates the running of the tests
 end
 
 # Gems used only for assets and not required
@@ -34,15 +34,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :test do
 	gem 'capybara'
-
-	# System-dependent gems
 	gem 'rb-fchange'
-	gem 'rb-notifu'
-	# gem 'win32console' Ruby 2.0 on windows supports ANSI escape sequences, win32console gem is unnecessary
 end
 
 group :development, :test do
-	gem 'rspec-rails' #access to RSpecspecific generators
+	gem 'rspec-rails' # access to RSpecspecific generators
+	gem 'rb-notifu'		# gem supporting Windows system tray notifications
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
