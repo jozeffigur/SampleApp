@@ -15,3 +15,8 @@ test:
   username: sampleapp
   password: password
   pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: sampleapp_production
