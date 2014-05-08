@@ -5,12 +5,14 @@ require 'rbconfig'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
 gem 'pg'
 
 group :development do
 	#gem 'sqlite3'
 	gem 'guard'
 	gem 'guard-rspec' # gem automates the running of the tests
+	gem 'annotate'
 end
 
 # Gems used only for assets and not required
