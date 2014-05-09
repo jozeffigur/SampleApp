@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   get 'clients/new'
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy] 
   resources :clients
   resources :issues
 
   root to: 'static_pages#home', :via => :get
   
   match '/signup' => 'users#new', :via => :get, :as => 'signup'
-  match '/signin' => 'users#signin', :via => :get, :as => 'signin'
+  match '/signin' => 'sessions#new', :via => :get, :as => 'signin'
+  match '/signout' => 'sessions#destroy', :via => :delete
   match '/help' => 'static_pages#help', :via => :get, :as => 'help'
   match '/about' => 'static_pages#about', :via => :get, :as => 'about'
   match '/contact' => 'static_pages#contact', :via => :get, :as => 'contact'
